@@ -1,0 +1,9 @@
+@use '../theme/theme' as theme;
+
+.container-fluid {
+  @include theme.grid-container-fluid;
+}
+
+.container {
+  @include theme.grid-container;
+}

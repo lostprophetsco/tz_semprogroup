@@ -1,0 +1,33 @@
+@use '../theme/theme' as theme;
+
+body {
+  min-width: 360px;
+  height: 100%;
+  padding-top: var(--header-height-sm);
+  font-family: 'Proxima Nova', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 100%;
+  color: var(--main-font-color);
+  background-color: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizespeed;
+  text-size-adjust: none;
+
+  @include theme.md {
+    padding-top: var(--header-height-md);
+  }
+
+  @include theme.lg {
+    padding-top: var(--header-height-lg);
+  }
+
+  @include theme.xl {
+    padding-top: var(--header-height-xl);
+  }
+
+  @include theme.xxl {
+    padding-top: var(--header-height-xxl);
+  }
+}

@@ -1,0 +1,29 @@
+@use '../theme/theme' as theme;
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  // .logo__link
+  &__link {
+    text-decoration: none;
+  }
+
+  // .logo__img
+  &__img {
+    @include theme.md {
+      width: 156px;
+      height: 25px;
+    }
+
+    @include theme.xxl {
+      width: 187px;
+      height: 30px;
+    }
+
+    display: block;
+    width: 131px;
+    height: 21px;
+  }
+}

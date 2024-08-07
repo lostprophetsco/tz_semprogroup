@@ -1,0 +1,236 @@
+@use '../theme/theme' as theme;
+
+.modal {
+  $this: &;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden auto;
+  visibility: hidden;
+  background-color: var(--color-white);
+  opacity: 0;
+  transition: all .3s ease-in;
+
+  // transform: scale(0);
+
+  &--active {
+    z-index: 10;
+    visibility: visible;
+    opacity: 10;
+
+    // transform: scale(1);
+  }
+
+  // .modal__content
+  &__content {
+    @include theme.grid(12);
+  }
+
+  // .modal__close
+  &__close {
+    @include theme.md {
+      top: 40px;
+      right: 40px;
+    }
+
+    @include theme.lg {
+      top: 50px;
+      right: 50px;
+    }
+
+    @include theme.xl {
+      top: 60px;
+      right: 60px;
+    }
+
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 3;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+  }
+
+  // .modal__body
+  &__body {
+    @include theme.md {
+      grid-column: 3/11;
+    }
+
+    @include theme.lg {
+      grid-column: 4/10;
+    }
+
+    grid-column: span 12;
+    padding: 20px 0;
+  }
+
+  // .modal__title
+  &__title {
+    @include theme.md {
+      font-size: 28px;
+    }
+
+    @include theme.xl {
+      font-size: 40px;
+    }
+
+    @include theme.xxl {
+      font-size: 52px;
+    }
+
+    font-size: 20px;
+    line-height: 140%;
+    text-transform: uppercase;
+  }
+
+  // .modal__form
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  // .modal__label
+  &__label {
+    @include theme.md {
+      margin-top: 45px;
+    }
+
+    @include theme.xl {
+      margin-top: 41px;
+    }
+
+    @include theme.xxl {
+      margin-top: 49px;
+    }
+
+    position: relative;
+    margin-top: 41px;
+    cursor: pointer;
+    border-bottom: 1px var(--color-light-gray) solid;
+
+    // .modal__label-placeholder
+    &-placeholder {
+      @include theme.md {
+        font-size: 14px;
+      }
+
+      @include theme.xl {
+        font-size: 16px;
+      }
+
+      @include theme.xxl {
+        font-size: 17px;
+      }
+
+      position: absolute;
+      bottom: 3px;
+      left: 0;
+      z-index: 3;
+      display: block;
+      font-size: 11px;
+      line-height: 160%;
+      color: var(--color-black);
+      text-transform: uppercase;
+      transition: all .3s ease-in;
+    }
+  }
+
+  // .modal__input
+  &__input {
+    background-color: transparent;
+    border: 0 none;
+    outline: none;
+    opacity: 0;
+    transition: all .3s ease-in;
+
+    // .modal__input:focus,
+    // .modal__input--active,
+    // .modal__input--filled
+    &:focus,
+    &--active,
+    &--filled {
+      opacity: 1;
+    }
+
+    // .modal__input:focus + .modal__label-placeholder,
+    // .modal__input--active + .modal__label-placeholder,
+    // .modal__input--filled + .modal__label-placeholder
+    &:focus+ #{$this}__label-placeholder,
+    &--active + #{$this}__label-placeholder,
+    &--filled + #{$this}__label-placeholder {
+      font-size: 8px;
+      transform: translateY(-20px);
+    }
+  }
+
+  // .modal__agree
+  &__agree {
+    @include theme.md {
+      margin-top: 50px;
+    }
+
+    @include theme.xl {
+      font-size: 12px;
+    }
+
+    @include theme.xxl {
+      font-size: 14px;
+    }
+
+    margin-top: 40px;
+    font-size: 12px;
+    line-height: 160%;
+    color: var(--color-light-gray);
+
+    // .modal__agree a
+    & a {
+      color: var(--color-light-gray);
+    }
+  }
+
+  // .modal__button-wrapper
+  &__button-wrapper {
+    @include theme.md {
+      margin-top: 30px;
+    }
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  // .modal__button
+  &__button {
+    @include theme.md {
+      padding: 20px 40px;
+      font-size: 14px;
+    }
+
+    @include theme.xl {
+      padding: 24px 70px;
+    }
+
+    @include theme.xxl {
+      font-size: 15px;
+    }
+
+    padding: 18px 50px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--color-white);
+    cursor: pointer;
+    background-color: #2F80ED;
+    border: none;
+    border-radius: 100px;
+  }
+}

@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Тестовое</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header__hamburger hamburger">
+          <div class="hamburger__lines">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <div class="hamburger__title">Меню</div>
+        </div>
+
+        <div class="header__choose-apartment choose-apartment">
+          <button class="choose-apartment__button">
+            <span class="choose-apartment__title"> Выбрать квартиру </span>
+
+            <img src="/src/images/chevron-down.svg" class="choose-apartment__icon" alt="arrow" />
+          </button>
+        </div>
+
+        <div class="header__logo logo">
+          <a href="/" class="logo__link" title="Логотип">
+            <img src="/src/images/logo.svg" alt="logo" class="logo__img" width="187" height="30" />
+          </a>
+        </div>
+
+        <div class="header__phone">
+          <a href="tel:+74955272121" class="header__phone-link" title="Телефон">+7 495 527 21 21</a>
+        </div>
+
+        <div class="header__order-call order-call">
+          <button class="order-call__button" onclick="showModal()">Заказать звонок</button>
+          <span class="order-call__icon" onclick="showModal()">
+            <img src="/src/images/phone.svg" alt="phone" width="14" height="14" />
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <div id="my-scrollbar">
+      <section class="hero">
+        <div class="container">
+          <picture class="hero__img">
+            <!-- may include @2x and @3x for retina devices -->
+            <source
+              srcset="/src/images/hero-full.webp"
+              media="(min-width: 1441px)"
+              type="image/webp"
+              width="1760"
+              height="600"
+            />
+
+            <source
+              srcset="/src/images/hero-full.jpg"
+              media="(min-width: 1441px)"
+              type="image/jpeg"
+              width="1760"
+              height="600"
+            />
+
+            <source
+              srcset="/src/images/hero-desktop.webp"
+              media="(min-width: 769px) and (max-width: 1440px)"
+              type="image/jpeg"
+              width="1360"
+              height="506"
+            />
+
+            <source
+              srcset="/src/images/hero-desktop.jpg"
+              media="(min-width: 769px) and (max-width: 1440px)"
+              type="image/jpeg"
+              width="1360"
+              height="506"
+            />
+
+            <source
+              srcset="/src/images/hero-tablet.webp"
+              media="(min-width: 480px) and (max-width: 768px)"
+              type="image/jpeg"
+              width="688"
+              height="487"
+            />
+
+            <source
+              srcset="/src/images/hero-tablet.jpg"
+              media="(min-width: 480px) and (max-width: 768px)"
+              type="image/jpeg"
+              width="688"
+              height="487"
+            />
+
+            <source
+              srcset="/src/images/hero-mobile.webp"
+              type="image/webp"
+              width="320"
+              height="313"
+            />
+            <img src="/src/images/hero-mobile.jpg" alt="Hero img" width="320" height="313" />
+          </picture>
+
+          <div class="hero__text">
+            <h1 class="hero__title">Дом бизнес-класса <br />для ценителей роскоши</h1>
+            <img
+              class="hero__logo"
+              src="/src/images/hero-logo.svg"
+              width="862"
+              height="137"
+              alt="logo"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="about">
+        <div class="container">
+          <div class="about__body">
+            <div class="about__img-wrapper">
+              <div class="about__title">О проекте</div>
+
+              <picture class="about__img">
+                <source
+                  srcset="/src/images/about-full.webp"
+                  media="(min-width: 1440px)"
+                  type="image/webp"
+                  width="733"
+                  height="900"
+                />
+
+                <source
+                  srcset="/src/images/about-full.jpg"
+                  media="(min-width: 1440px)"
+                  type="image/jpeg"
+                  width="733"
+                  height="900"
+                />
+
+                <source
+                  srcset="/src/images/about.webp"
+                  type="image/webp"
+                  width="408"
+                  height="514"
+                />
+
+                <img src="/src/images/about.jpg" alt="About img" width="408" height="514" />
+              </picture>
+
+              <img
+                src="/src/images/about-icon.svg"
+                class="about__img-icon"
+                alt="About icon"
+                width="260"
+                height="260"
+              />
+            </div>
+
+            <div class="about__text">
+              <div class="about__text-title">
+                Уютное и безопасное пространство для счастливой, <br />
+                <span>спокойной и размеренной жизни</span>
+              </div>
+
+              <div class="about__text-description">
+                <span>Квартиры от 65 до 356 м<sup>2</sup> с чистовой отделкой,</span> балконами,
+                лоджиями и террасами В собственной закрытой охраняемой территории.
+              </div>
+
+              <div class="about__video">
+                <div class="about__video-title">
+                  Видео о проекте
+                  <span>1:25 минут</span>
+                </div>
+
+                <picture class="about__video-img" onclick="playVideo();">
+                  <source
+                    srcset="/src/images/about-play.webp"
+                    type="image/webp"
+                    width="241"
+                    height="241"
+                  />
+
+                  <img src="/src/images/about-play.png" alt="Video icon" width="241" height="241" />
+                </picture>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="modal" id="modal">
+      <div class="modal__close" onclick="hideModal()">
+        <img src="/src/images/modal-close.svg" alt="Close icon" width="28" height="28" />
+      </div>
+
+      <div class="modal__content container">
+        <div class="modal__body">
+          <div class="modal__title">Заказать звонок</div>
+
+          <form action="#" class="modal__form" onsubmit="serializeForm(event, this)">
+            <label class="modal__label">
+              <input type="text" name="name" class="modal__input" required />
+              <span class="modal__label-placeholder">Ваше имя</span>
+            </label>
+            <label class="modal__label">
+              <input type="tel" name="phone" id="phone" class="modal__input" required />
+              <span class="modal__label-placeholder">Телефон</span>
+            </label>
+            <label class="modal__label">
+              <input type="email" name="email" class="modal__input" value="" required />
+              <span class="modal__label-placeholder">E-mail</span>
+            </label>
+            <div class="modal__agree">
+              Нажимая на кнопку «Отправить», вы ознакомлены и подтверждаете согласие с
+              <a href="#">политикой обработки персональных данных</a>
+            </div>
+            <div class="modal__button-wrapper">
+              <button type="submit" class="modal__button">Отправить</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="video">
+      <div class="video-player">
+        <video controls class="video-player__video">
+          <source
+            src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+          />
+        </video>
+      </div>
+
+      <button class="video-close" onclick="closeVideo()">
+        123
+        <img src="/src/images/modal-close.svg" alt="Close icon" width="28" height="28" />
+      </button>
+    </div>
+
+    <script type="module" src="/src/js/main.js"></script>
+    <script src="/node_modules/imask/dist/imask.js"></script>
+    <script src="/node_modules/smooth-scrollbar/dist/smooth-scrollbar.js"></script>
+    <script src="/src/js/common.js"></script>
+  </body>
+</html>

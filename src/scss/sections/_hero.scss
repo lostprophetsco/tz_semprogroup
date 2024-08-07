@@ -1,0 +1,130 @@
+@use '../theme/theme' as theme;
+
+.hero {
+  position: relative;
+  z-index: 1;
+
+  @media screen and (width <= 768px) {
+    height: calc(100vh - var(--header-height-sm));
+
+    @supports (height: 100dvh) {
+      height: calc(100dvh - var(--header-height-sm));
+    }
+  }
+
+  @include theme.md {
+    height: calc(100vh - var(--header-height-md));
+  }
+
+  @include theme.lg {
+    height: calc(100vh - var(--header-height-lg));
+  }
+
+  @include theme.xl {
+    height: calc(100vh - var(--header-height-xl));
+  }
+
+  @include theme.xxl {
+    height: calc(100vh - var(--header-height-xxl));
+  }
+
+  // .hero .container
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+  }
+
+  // .hero__img
+  &__img {
+    display: flex;
+    flex-grow: 1;
+    overflow: hidden;
+
+    // .hero__img img
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  // .hero__text
+  &__text {
+    @include theme.md {
+      gap: 43px;
+      padding: 40px 0
+    }
+
+    @include theme.lg {
+      flex-flow: row nowrap;
+      gap: 20px;
+      padding: 30px 0;
+    }
+
+    @include theme.xl {
+      padding: 40px 0;
+    }
+
+    @include theme.xxl {
+      padding: 50px 0;
+    }
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 0;
+  }
+
+  // .hero__title
+  &__title {
+    @include theme.md {
+      font-size: 26px;
+      line-height: 140%;
+    }
+
+    @include theme.lg {
+      align-self: flex-end;
+      font-size: 19px;
+    }
+
+    @include theme.xl {
+      font-size: 26px;
+    }
+
+    @include theme.xxl {
+      font-size: 31px;
+    }
+
+    display: flex;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 150%;
+    color: var(--color-blue);
+    text-transform: uppercase;
+  }
+
+  // .hero__logo
+  &__logo {
+    @include theme.lg {
+      max-width: 60%;
+    }
+
+    @include theme.xl {
+      max-width: 55%;
+    }
+
+    @include theme.xxl {
+      max-width: 50%;
+    }
+
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-left: auto;
+  }
+}
+
+

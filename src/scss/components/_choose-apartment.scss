@@ -1,0 +1,64 @@
+@use '../theme/theme' as theme;
+
+.choose-apartment {
+  $this: &;
+
+  // .choose-apartment__button
+  &__button {
+    @include theme.md {
+      padding: 15px 20px;
+    }
+
+    @include theme.xl {
+      font-size: 13px;
+    }
+
+    @include theme.xxl {
+      padding: 18px 25px;
+      font-size: 15px;
+      border-radius: 118px;
+    }
+
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+    padding: 15px 18px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-white);
+    text-transform: uppercase;
+    cursor: pointer;
+    background-color: var(--color-blue);
+    border: none;
+    border-radius: 100px;
+  }
+
+  // .choose-apartment__title
+  &__title {
+    --h: 1.2em;
+
+    overflow: hidden;
+    line-height: var(--h);
+    color: #0000;
+    text-shadow: 0 0 var(--color-white), 0 var(--h) var(--color-white);
+    transition: .5s;
+
+    // .choose-apartment:hover .choose-apartment__title,
+    // .choose-apartment:focus .choose-apartment__title,
+    // .choose-apartment:active .choose-apartment__title
+    #{$this}:hover &,
+    #{$this}:focus &,
+    #{$this}:active & {
+      text-shadow: 0 calc(-1 * var(--h)) var(--color-white), 0 0 var(--color-white);
+    }
+  }
+
+  // .choose-apartment__arrow
+  &__arrow {
+    display: block;
+    width: 14px;
+    height: 15px;
+  }
+}

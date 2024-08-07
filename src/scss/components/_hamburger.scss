@@ -1,0 +1,85 @@
+@use '../theme/theme' as theme;
+
+.hamburger {
+  $this: &;
+
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 10px;
+  align-items: center;
+  cursor: pointer;
+
+  @include theme.xl {
+    gap: 12px;
+  }
+
+  @include theme.xxl {
+    gap: 15px
+  }
+
+  // .hamburger:hover, .hamburger:focus, .hamburger:active
+  &:hover,
+  &:focus,
+  &:active {
+    // .hamburger:hover .hamburger__lines,
+    // .hamburger:focus .hamburger__lines,
+    // .hamburger:active .hamburger__lines
+    #{$this}__lines {
+      gap: 6px;
+
+      @include theme.xxl {
+        gap: 7px;
+      }
+    }
+  }
+
+
+  // .hamburger__lines
+  &__lines {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: all .3s ease-in;
+
+    @include theme.xxl {
+      gap: 5px;
+    }
+
+    // .hamburger__lines span
+    span {
+      @include theme.md {
+        width: 32px;
+        background-color: var(--color-blue);
+      }
+
+      @include theme.xxl {
+        width: 38px;
+      }
+
+      display: block;
+      width: 29px;
+      height: 2px;
+      background-color: var(--color-black);
+    }
+  }
+
+  // .hamburger__title
+  &__title {
+    @include theme.md {
+      display: block;
+    }
+
+    @include theme.xl {
+      font-size: 13px;
+    }
+
+    @include theme.xxl {
+      font-size: 15px;
+    }
+
+    display: none;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+}

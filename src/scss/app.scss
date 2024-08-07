@@ -1,0 +1,52 @@
+@use './theme/theme' as theme;
+@import 'config';
+@import 'components';
+@import 'sections';
+
+:root {
+  @include theme.grid-settings;
+  @include theme.theme-default;
+  @include theme.fonts-family;
+
+  --main-font-color: #111;
+  --color-white: #fff;
+  --color-blue: #2F80ED;
+  --color-black: #000;
+  --color-gray: rgb(11 11 11 / 50%);
+  --color-light-gray: #ababab;
+  --header-height-sm: 81px;
+  --header-height-md: 124px;
+  --header-height-lg: 104px;
+  --header-height-xl: 106px;
+  --header-height-xxl: 133px;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#my-scrollbar {
+  height: 100%;
+}
+
+@keyframes scroll-up {
+  0% {
+    transform: translateY(0);
+  }
+
+  25% {
+    visibility: hidden;
+    transform: translateY(-200%);
+  }
+
+  50% {
+    transform: translateY(200%);
+  }
+
+  100% {
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+

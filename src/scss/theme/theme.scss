@@ -1,0 +1,175 @@
+$break-sm: 360px;
+$break-md: 768px;
+$break-lg: 1024px;
+$break-xl: 1280px;
+$break-xxl: 1770px;
+
+@mixin sm() {
+  @media screen and (min-width: $break-sm) {
+    @content;
+  }
+}
+
+@mixin md() {
+  @media screen and (min-width: $break-md) {
+    @content;
+  }
+}
+
+@mixin lg() {
+  @media screen and (min-width: $break-lg) {
+    @content;
+  }
+}
+
+@mixin xl() {
+  @media screen and (min-width: $break-xl) {
+    @content;
+  }
+}
+
+@mixin xxl() {
+  @media screen and (min-width: $break-xxl) {
+    @content;
+  }
+}
+
+@mixin grid-settings() {
+  --container: 100%;
+  --fields: 20px;
+  --gap: 0px;
+  --debug-breakpoint: 'null';
+
+  @include sm {
+    --container: 100%;
+    --fields: 20px;
+  }
+
+  @include md {
+    --container: 100%;
+    --fields: 40px;
+  }
+
+  @include lg {
+    --container: 100%;
+  }
+
+  @include xl {
+    --container: 100%;
+  }
+
+  @include xxl {
+    --container: 1760px;
+    --fields: 80px;
+  }
+}
+
+@mixin grid-container() {
+  @include grid-container-fluid;
+
+  max-width: var(--container);
+  margin: 0 auto;
+
+  @extend %grid-debug !optional;
+}
+
+@mixin grid-container-fluid() {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  padding-right: var(--fields);
+  padding-left: var(--fields);
+}
+
+@mixin grid(
+  $columns,
+  $columns-sm: null,
+  $columns-md: null,
+  $columns-lg: null,
+  $columns-xl: null,
+  $columns-xxl: null
+) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  grid-gap: var(--gap);
+  width: 100%;
+
+  @if $columns-sm {
+    @include sm {
+      grid-template-columns: repeat($columns-sm, 1fr);
+    }
+  }
+
+  @if $columns-md {
+    @include md {
+      grid-template-columns: repeat($columns-md, 1fr);
+    }
+  }
+
+  @if $columns-lg {
+    @include lg {
+      grid-template-columns: repeat($columns-lg, 1fr);
+    }
+  }
+
+  @if $columns-xl {
+    @include xl {
+      grid-template-columns: repeat($columns-xl, 1fr);
+    }
+  }
+
+  @if $columns-xxl {
+    @include xxl {
+      grid-template-columns: repeat($columns-xxl, 1fr);
+    }
+  }
+}
+
+@mixin theme-default() {
+ --main-font-color: #111;
+}
+
+@mixin fonts-family() {
+  --fonts-family-proxima: "Proxima Nova", sans-serif;
+}
+
+@mixin column-offset(
+  $offset,
+  $offset-sm: null,
+  $offset-md: null,
+  $offset-lg: null,
+  $offset-xl: null,
+  $offset-xxl: null
+) {
+  grid-column: $offset;
+
+  @if $offset-sm {
+    @include sm {
+      grid-column: $offset-sm;
+    }
+  }
+
+  @if $offset-md {
+    @include md {
+      grid-column: $offset-md;
+    }
+  }
+
+  @if $offset-lg {
+    @include lg {
+      grid-column: $offset-lg;
+    }
+  }
+
+  @if $offset-xl {
+    @include xl {
+      grid-column: $offset-xl;
+    }
+  }
+
+  @if $offset-xxl {
+    @include xxl {
+      grid-column: $offset-xxl;
+    }
+  }
+}
